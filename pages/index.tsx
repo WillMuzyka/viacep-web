@@ -95,7 +95,7 @@ const IndexPage = () => {
           <ErrorMessage>{errorMessage}</ErrorMessage>
           <SearchButton
             type="submit"
-            loading={isLoading}
+            isloading={isLoading}
             disabled={!hasAllDigits || isLoading}
           >
             Buscar CEP

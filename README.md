@@ -1,41 +1,80 @@
-# TypeScript Next.js example
+<h3  align="center">
+Project ViaCEP
+</h3>
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+<p  align="center">
+<a  href="https://github.com/WillMuzyka">
+<img  alt="Made with Love"  src="https://img.shields.io/badge/made%20with-love-%2304D361">
+</a>
+<a  href="LICENSE">
+<img  alt="License"  src="https://img.shields.io/badge/license-MIT-%2304D361">
+</a>
+</p>
 
-## Deploy your own
+<p  align="center">
+<a  href="#joystick-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a  href="#hourglass_flowing_sand-installation">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a  href="#book-environment-variables">Environment Variables</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a  href="#whale2-docker">Docker</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a  href="#cop-remarks">Remarks</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a  href="#memo-license">License</a>
+</p>
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+This is an application tho gather the address information using the address CEP (Brazilian ZIP code).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+To check the backend repository of this project, please access https://github.com/WillMuzyka/viacep
 
-## How to use it?
+## :joystick: Technologies
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+This project used a lot of technologies and concepts. A few of them are listed below.
+(Also some languages, libraries and frameworks):
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
-```
+* [TypeScript](https://www.typescriptlang.org/)
+* [Node.js](https://nodejs.org/)
+* [ReactJS](https://reactjs.org/)
+* [Express](https://expressjs.com/)
+* [Styled Components](https://styled-components.com/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Docker](https://www.docker.com/)
+* [JSX](https://reactjs.org/docs/introducing-jsx.html)
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## :hourglass_flowing_sand: Installation:
 
-## Notes
+To install and use this application, first be sure that you have node version 12, npm and/or yarn installed (you can run everything with npm, if you prefer, but I recommend yarn). They are essential for running the application.
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
+The whole project was made based on Node.js and docker. If you want to use this library, please clone this repository and check the following steps.
 
-```
-npm install --save-dev typescript
-```
+**Steps**
 
-To enable TypeScript's features, we install the type declarations for React and Node.
+1. Open your computer's terminal and change for the directory that you want to keep this application. Run the code `git clone https://github.com/WillMuzyka/viacep-web.git`.
 
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
+2. Run the command `yarn` or `npm install` to install all the required packages listed on the file *`package.json`*.
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
+3. Set the environment variables that suits your setup. An example can be found at the root directory of this project and more information can be found on section "Variables".
 
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
+4. After installing the packages, run the command `yarn dev:server` to start the frontend. This will keep running until you end the application (Ctrl + C) or close the window that is running. It will not run in the background, so you need to keep the window open. This application uses the port `:3000`, so be careful to not have another application trying to run on the same port.
 
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+5. Enjoy the application!
+
+
+## :book: Environment Variables
+
+This project has a .env file that contains all the environment variables. They are required and should not be left with empty values. The list of all variables can be found bellow.
+
+* **NEXT_PUBLIC_API_URL**: The backend address with port. This address will be used for making request to the backend
+
+## :whale2: Docker
+
+This project can be setup all within a container using docker. For this, first be sure to have installed both docker and docker-compose on your machine.
+To start the application, run `docker-compose up -d`. It will build (if needed) the containers and start the application in detached mode.
+To stop, run `docker-compose stop`.
+
+## :cop: Remarks
+
+Please notice that this project was made to evaluate my knowledge on the concepts of the node.js, typescript, react, postgres and docker.
+
+This is not a deploy version of the application and may not be optimized. The whole purpose of this code is for my own evaluation and I do not have any guaranty if you want to deploy or use it commercially.
+
+## :memo: LICENSE
+
+This project is under the MIT License. For more information, please refer to [LICENSE](LICENSE).

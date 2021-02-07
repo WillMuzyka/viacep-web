@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  viacep-web:
+    container_name: viacep-web
+    build: '.'
+    restart: unless-stopped
+    env_file: .env.local
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    environment:
+      DB_HOST: viacep-postgres
+    networks:
+      - frontend
+    ports:
+      - '3000:3000'
+
+volumes:
+  viacep-postgres-data:
+
+networks:
+  frontend:
+    external:
+      name: backend_frontend

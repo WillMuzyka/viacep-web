@@ -9,7 +9,7 @@ interface CepInputProps extends HTMLAttributes<HTMLInputElement> {
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   // eslint-disable-next-line react/require-default-props
-  loading?: boolean;
+  isloading?: boolean;
 }
 
 const rotation = keyframes`
@@ -66,7 +66,7 @@ const ButtonContainer = styled.button<ButtonProps>`
     margin: 0;
   }
   svg {
-    ${(props) => !!props.loading
+    ${(props) => !!props.isloading
       && css`
         margin: 0;
         animation: ${rotation} 2s linear infinite;
@@ -77,10 +77,10 @@ const ButtonContainer = styled.button<ButtonProps>`
 
 // eslint-disable-next-line no-undef
 export const SearchButton: React.FC<ButtonProps> = (
-  { children, loading, ...rest }: ButtonProps,
+  { children, isloading, ...rest }: ButtonProps,
 ) => (
-  <ButtonContainer type="button" loading={loading} {...rest}>
-    {loading ? (
+  <ButtonContainer type="button" isloading={isloading} {...rest}>
+    {isloading ? (
       <>
         <FiLoader />
         <p>Carregando</p>
