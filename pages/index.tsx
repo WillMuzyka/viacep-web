@@ -18,11 +18,13 @@ const IndexPage = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasAllDigits, setHasAllDigits] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const [cep, setCep] = useState('');
   const [address, setAddress] = useState<IAddress>({} as IAddress);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const getCep = useCallback(
+  const getAddress = useCallback(
     async (cepString: string) => {
       setHasError(false);
       setErrorMessage('');
@@ -43,6 +45,8 @@ const IndexPage = () => {
             || error.response?.data?.message
             || error.message,
           );
+        }).finally(() => {
+          setIsLoading(false);
         });
     }, [],
   );
@@ -62,8 +66,9 @@ const IndexPage = () => {
   }, []);
 
   const handleFormSubmit = (e: FormEvent<any>) => {
+    setIsLoading(true);
     e.preventDefault();
-    getCep(cep);
+    getAddress(cep);
   };
 
   const handleInputFocusBlur = () => {
@@ -90,7 +95,8 @@ const IndexPage = () => {
           <ErrorMessage>{errorMessage}</ErrorMessage>
           <SearchButton
             type="submit"
-            disabled={!hasAllDigits}
+            loading={isLoading}
+            disabled={!hasAllDigits || isLoading}
           >
             Buscar CEP
           </SearchButton>

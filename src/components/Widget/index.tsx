@@ -31,10 +31,19 @@ export const Widget = styled.div<WidgetProps>`
   }
   &:last-child {
     margin-left: 32px;
-    ${(props) => !props.isValidCep
-      && css`
+    transform-style: preserve-3d;
+
+    ${(props) => (props.isValidCep
+    ? css`
+        transition: opacity 0.4s 0.4s, transform 0.8s;
+        transform: rotateY(0deg);
+        opacity: 1;
+      `
+    : css`
+        transition: opacity 0.4s, transform 0.8s;
+        transform: rotateY(180deg);
         opacity: 0;
-      `}
+      `)}
   }
 
 
