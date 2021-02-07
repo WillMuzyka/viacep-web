@@ -14,9 +14,6 @@ export const Widget = styled.div<WidgetProps>`
   border-width: 2px;
   overflow: hidden;
 
-  display: flex;
-  flex-direction: column;
-
   width: 80%;
   max-width: 350px;
   margin: 10% 10% auto;
