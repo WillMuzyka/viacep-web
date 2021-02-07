@@ -32,6 +32,7 @@ This project used a lot of technologies and concepts. A few of them are listed b
 * [TypeScript](https://www.typescriptlang.org/)
 * [Node.js](https://nodejs.org/)
 * [ReactJS](https://reactjs.org/)
+* [NextJS](https://nextjs.org/)
 * [Express](https://expressjs.com/)
 * [Styled Components](https://styled-components.com/)
 * [PostgreSQL](https://www.postgresql.org/)
